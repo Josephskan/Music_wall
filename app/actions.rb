@@ -34,7 +34,8 @@ post '/songs' do
   @song = Song.new(
     title: params[:title],
     author: params[:author],
-    url: params[:url]
+    url: params[:url],
+    user_id: current_user.id
     )
   if @song.save
     redirect "/songs"
