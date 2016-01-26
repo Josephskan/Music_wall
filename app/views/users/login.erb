@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+<form action="/users/login" method="POST">
+  <div>
+    <label>Email:</label>
+    <input type="text" name="email" value="<%= @user && @user.email %>">
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" name="password" value="<%= @user && @user.password %>">
+    <!-- something find_by(session??? -->
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>

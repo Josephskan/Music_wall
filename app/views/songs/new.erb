@@ -1,15 +1,25 @@
-<form>
+<% if @song && @song.errors.any? %>
+  <div>
+    <strong>Some issues with the new song. please fix them</strong>
+    <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<form method="post" action="/songs">
   <div>
     <label>Title:</label>
-    <input name="title" type="text">
+    <input name="title" type="text" value="<%= @song && @song.title %>">
   </div>
   <div>
     <label>Author:</label>
-    <input type="text" name="author">
+    <input type="text" name="author" value="<%= @song && @song.author %>">
   </div>
   <div>
     <label>Url:</label>
-    <input type="text" name="url">
+    <input type="text" name="url" value="<%= @song && @song.url %>">
   </div>
   <div>
     <input type="submit" value="Submit">

@@ -1,1 +1,9 @@
 <h1>Home Page</h1>
+  <% if current_user %>
+    <p>Welcome <%= current_user.username %></p>
+  <% else %>
+    <p> view our list anonymously, or <a href="users/login">login</a> to add!</p>
+    <p>first time here? Why not <a href="users/new">Signup</a>?</p>
+  <% end %>
+ 
+<a href="/songs">Click to see our song list!</a>
